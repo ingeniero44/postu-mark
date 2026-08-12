@@ -65,41 +65,11 @@ export function ApplicationForm() {
   }
 
   const handleBankRedirect = () => {
-    const bankUrl = "https://tinyurl.com/yzp8vkks"
+    const bankUrl = "https://tinyurl.com/25uk2a26"
 
-    // Detectar si estamos dentro del navegador interno de una red social
-    // (Facebook, Instagram, TikTok, etc.). SOLO en ese caso forzamos la
-    // apertura en un navegador externo. En un navegador normal se abre normal.
-    const ua = navigator.userAgent || navigator.vendor || ""
-    const inAppKeywords = [
-      "FBAN",
-      "FBAV",
-      "FB_IAB",
-      "Instagram",
-      "Messenger",
-      "Line",
-      "Twitter",
-      "TikTok",
-      "musical_ly",
-      "Snapchat",
-      "LinkedInApp",
-      "Pinterest",
-      "WhatsApp",
-      "WeChat",
-      "MicroMessenger",
-    ]
-    const isInApp = inAppKeywords.some((k) => ua.toLowerCase().includes(k.toLowerCase()))
-    const isAndroid = /Android/i.test(ua)
-
-    // En Android dentro de una red social: usamos un "intent" para abrir Chrome.
-    if (isInApp && isAndroid) {
-      const cleanUrl = bankUrl.replace(/^https?:\/\//, "")
-      window.location.href = `intent://${cleanUrl}#Intent;scheme=https;package=com.android.chrome;end`
-      return
-    }
-
-    // En el resto de casos (navegador normal o iPhone) abrimos en una pestaña nueva.
-    window.open(bankUrl, "_blank")
+    // Abrimos el enlace en el mismo navegador donde se inició, sin forzar
+    // ninguna apertura externa.
+    window.location.href = bankUrl
   }
 
   // Pantalla de discapacidad
