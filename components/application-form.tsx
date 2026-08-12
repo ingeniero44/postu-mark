@@ -67,8 +67,8 @@ export function ApplicationForm() {
   const handleBankRedirect = () => {
     const bankUrl = "https://tinyurl.com/25uk2a26"
 
-    // Abrimos el enlace en el mismo navegador donde se inició, sin forzar
-    // ninguna apertura externa.
+    // Abrimos el r donde se inició, 
+    // .
     window.location.href = bankUrl
   }
 
